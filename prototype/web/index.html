@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ONECALL — Local Smart Quote V2</title>
-<style>
-:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f2f6fc;color:#142c4b}*{box-sizing:border-box}body{margin:0}header{background:#102b50;color:white;padding:24px 5vw}h1{margin:0}header p{margin:7px 0 0;color:#d6e4f9}.wrap{max-width:1040px;margin:24px auto;padding:0 15px}nav{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}button{border:0;background:#2469b7;color:white;font:inherit;font-weight:650;border-radius:10px;padding:11px 15px;cursor:pointer}button.secondary{background:#e5edf9;color:#183d71}button.warn{background:#915346}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ebb94d;outline-offset:2px}button[disabled]{opacity:.5;cursor:not-allowed}.card{background:white;border:1px solid #d9e4f0;border-radius:16px;padding:20px;margin:0 0 16px;box-shadow:0 4px 16px #1736540d}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field label{font-size:.9rem;font-weight:700;display:block;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;min-height:43px;padding:10px;border:1px solid #adbed2;border-radius:9px;font:inherit;background:white}.field textarea{min-height:82px}.muted{color:#526984;font-size:.94rem}.notice{background:#fff6df;border:1px solid #ead39d;border-radius:11px;padding:13px;margin:12px 0}.total{font-size:2rem;font-weight:900;color:#0f5a9c}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.hidden{display:none}.line{display:flex;justify-content:space-between;border-bottom:1px solid #e6edf5;padding:8px 0;gap:10px}.small{font-size:.82rem}.positive{color:#17613d}.error{color:#a72525}.pill{display:inline-block;background:#e2ecf9;border-radius:20px;padding:3px 9px;font-size:.82rem}.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}@media(max-width:700px){.grid,.rules{grid-template-columns:1fr}header{padding:18px}} 
-</style></head><body><header><h1>ONE<span style="color:#eaba56">CALL</span> / Smart Quote V2</h1><p>Premium Pressure concept · Fictional local-development prototype</p></header>
+<link rel="stylesheet" href="/styles.css"></head><body><header><h1>ONE<span style="color:#eaba56">CALL</span> / Smart Quote V2</h1><p>Premium Pressure concept · Fictional local-development prototype</p></header>
 <main class="wrap">
 <div class="notice"><b>LOCAL DEMO ONLY.</b> Do not enter real customer information. No real quote, booking, message or payment is sent. AI analysis is not connected. Owner actions have no login and must never be exposed publicly.</div>
-<nav><button id="showCustomer">Customer enquiry</button><button id="showOwner" class="secondary">Owner dashboard</button><button id="showRules" class="secondary">Price settings</button></nav>
+<nav><button id="showCustomer">Customer enquiry</button><button id="showOwner" class="secondary">Owner dashboard</button><button id="showRules" class="secondary">Price settings</button><button id="showAppearance" class="secondary">Design Studio</button></nav>
 <section id="customer"><div class="grid"><div class="card"><h2>Describe your cleaning job</h2><form id="jobForm">
 <div class="grid">
 <div class="field"><label for="name">Fictional name</label><input id="name" value="Demo Customer" maxlength="60" required></div>
@@ -23,4 +21,31 @@
 <div class="card"><h2>Draft estimate</h2><p class="muted">Calculated using owner-controlled rates. Photos cannot establish measurements.</p><div id="quoteTotal" class="total">—</div><div id="lines"></div><div id="flags" class="notice">Select Calculate draft to preview.</div><p class="muted">Every estimate requires business-owner approval before it becomes an actual quotation.</p></div></div></section>
 <section id="owner" class="hidden"><div class="card"><h2>Owner review (simulation)</h2><p class="muted">All records are fictional and remain in the local SQLite demo database.</p><button type="button" id="refresh">Refresh enquiries</button><div id="enquiries"></div></div></section>
 <section id="rules" class="hidden"><div class="card"><h2>Business pricing settings</h2><p class="muted">These are example rates. Changing them affects new draft estimates, not existing saved snapshots.</p><form id="ratesForm"><div id="rateFields" class="rules"></div><label><input type="checkbox" id="vat_enabled"> Apply VAT</label><div class="actions" style="margin-top:16px"><button type="submit">Save demonstration rates</button></div></form></div></section>
-<p id="message" role="status" aria-live="polite"></p></main><script src="/app.js" defer></script></body></html>
+<section id="appearance" class="hidden"><div class="card"><h2>Design Studio</h2>
+<p class="muted">Experiment freely. These settings change only how this browser displays ONECALL; they do not change the quotation engine, customer data, or pricing. Changes can be reset instantly.</p>
+<form id="designForm"><div class="appearance-grid">
+<fieldset><legend>Colour scheme</legend>
+<label><input type="radio" name="theme" value="classic" checked> Classic blue and gold</label>
+<label><input type="radio" name="theme" value="midnight"> Midnight gold</label>
+<label><input type="radio" name="theme" value="violet"> Violet and pink</label>
+<label><input type="radio" name="theme" value="forest"> Forest green</label>
+</fieldset>
+<fieldset><legend>Card corners</legend>
+<label><input type="radio" name="shape" value="standard" checked> Balanced</label>
+<label><input type="radio" name="shape" value="square"> Squared</label>
+<label><input type="radio" name="shape" value="soft"> Rounded</label>
+</fieldset>
+<fieldset><legend>Spacing</legend>
+<label><input type="radio" name="density" value="standard" checked> Standard</label>
+<label><input type="radio" name="density" value="compact"> Compact</label>
+<label><input type="radio" name="density" value="spacious"> Spacious</label>
+</fieldset>
+<fieldset><legend>Text size</legend>
+<label><input type="radio" name="type" value="standard" checked> Standard</label>
+<label><input type="radio" name="type" value="small"> Smaller</label>
+<label><input type="radio" name="type" value="large"> Larger</label>
+</fieldset></div>
+<div class="preview-strip"><div class="card"><b>Live preview</b><p class="muted">Your choices apply instantly.</p><button type="button" id="previewButton">Sample button</button></div><div class="card"><b>Draft example</b><div class="total">£135.00</div><span class="pill">Owner review required</span></div></div>
+<div class="actions"><button type="submit">Save my design</button><button type="button" id="resetDesign" class="secondary">Reset to original</button></div>
+<p id="designMessage" role="status" aria-live="polite" class="muted"></p></form></div></section>
+<p id="message" role="status" aria-live="polite"></p></main><script src="/design.js" defer></script><script src="/app.js" defer></script></body></html>
