@@ -12,8 +12,8 @@ async function api(method,path,payload){
  return data;
 }
 function show(section){
- for(const name of ['customer','owner','rules'])$(name).classList.toggle('hidden',name!==section);
- for(const [id,name] of [['showCustomer','customer'],['showOwner','owner'],['showRules','rules']])$(id).className=name===section?'':'secondary';
+ for(const name of ['customer','owner','rules','appearance'])$(name).classList.toggle('hidden',name!==section);
+ for(const [id,name] of [['showCustomer','customer'],['showOwner','owner'],['showRules','rules'],['showAppearance','appearance']])$(id).className=name===section?'':'secondary';
  status('');
  if(section==='owner')loadEnquiries();
  if(section==='rules')loadRates();
@@ -21,6 +21,7 @@ function show(section){
 $('showCustomer').onclick=()=>show('customer');
 $('showOwner').onclick=()=>show('owner');
 $('showRules').onclick=()=>show('rules');
+$('showAppearance').onclick=()=>show('appearance');
 $('service').addEventListener('change',()=>{
  if($('service').value==='patio'&&$('surface').value==='block_paving')$('surface').value='patio_slabs';
  if($('service').value==='patio')$('resanding').checked=false;
