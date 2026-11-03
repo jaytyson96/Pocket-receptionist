@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ONECALL — Local Smart Quote V2</title>
-<link rel="stylesheet" href="/styles.css"></head><body><header><h1>ONE<span style="color:#eaba56">CALL</span> / Smart Quote V2</h1><p>Premium Pressure concept · Fictional local-development prototype</p></header>
+<link rel="stylesheet" href="/styles.css"></head><body><header><h1>ONE<span class="wordmark-accent">CALL</span> / Smart Quote V2</h1><p>Premium Pressure concept · Fictional local-development prototype</p></header>
 <main class="wrap">
 <div class="notice"><b>LOCAL DEMO ONLY.</b> Do not enter real customer information. No real quote, booking, message or payment is sent. AI analysis is not connected. Owner actions have no login and must never be exposed publicly.</div>
 <nav><button id="showCustomer">Customer enquiry</button><button id="showOwner" class="secondary">Owner dashboard</button><button id="showRules" class="secondary">Price settings</button><button id="showAppearance" class="secondary">Design Studio</button></nav>
@@ -15,12 +15,12 @@
 <div class="field"><label><input id="biocide" type="checkbox"> Add biocide</label></div>
 <div class="field"><label><input id="resanding" type="checkbox"> Re-sand block paving</label></div></div>
 <div class="field"><label for="description">Fictional job description</label><textarea id="description" maxlength="1000" required>Sample driveway cleaning request; water and access to be confirmed.</textarea></div>
-<div class="field"><label for="photo">Optional photo preview (this device only)</label><input id="photo" type="file" accept="image/*"><p class="muted small">Only previews locally. The image is not transmitted or analysed by AI.</p><img id="photoPreview" alt="Local photo preview" class="hidden" style="max-width:100%;max-height:180px"></div>
+<div class="field"><label for="photo">Optional photo preview (this device only)</label><input id="photo" type="file" accept="image/*"><p class="muted small">Only previews locally. The image is not transmitted or analysed by AI.</p><img id="photoPreview" alt="Local photo preview" class="hidden photo-preview"></div>
 <label><input id="fictional" type="checkbox" required> I confirm all information here is fictional demonstration data.</label>
-<div class="actions" style="margin-top:15px"><button type="button" id="estimateBtn">Calculate draft</button><button type="submit">Save sample enquiry</button></div></form></div>
+<div class="actions top-space"><button type="button" id="estimateBtn">Calculate draft</button><button type="submit">Save sample enquiry</button></div></form></div>
 <div class="card"><h2>Draft estimate</h2><p class="muted">Calculated using owner-controlled rates. Photos cannot establish measurements.</p><div id="quoteTotal" class="total">—</div><div id="lines"></div><div id="flags" class="notice">Select Calculate draft to preview.</div><p class="muted">Every estimate requires business-owner approval before it becomes an actual quotation.</p></div></div></section>
 <section id="owner" class="hidden"><div class="card"><h2>Owner review (simulation)</h2><p class="muted">All records are fictional and remain in the local SQLite demo database.</p><button type="button" id="refresh">Refresh enquiries</button><div id="enquiries"></div></div></section>
-<section id="rules" class="hidden"><div class="card"><h2>Business pricing settings</h2><p class="muted">These are example rates. Changing them affects new draft estimates, not existing saved snapshots.</p><form id="ratesForm"><div id="rateFields" class="rules"></div><label><input type="checkbox" id="vat_enabled"> Apply VAT</label><div class="actions" style="margin-top:16px"><button type="submit">Save demonstration rates</button></div></form></div></section>
+<section id="rules" class="hidden"><div class="card"><h2>Business pricing settings</h2><p class="muted">These are example rates. Changing them affects new draft estimates, not existing saved snapshots.</p><form id="ratesForm"><div id="rateFields" class="rules"></div><label><input type="checkbox" id="vat_enabled"> Apply VAT</label><div class="actions top-space"><button type="submit">Save demonstration rates</button></div></form></div></section>
 <section id="appearance" class="hidden"><div class="card"><h2>Design Studio</h2>
 <p class="muted">Experiment freely. These settings change only how this browser displays ONECALL; they do not change the quotation engine, customer data, or pricing. Changes can be reset instantly.</p>
 <form id="designForm"><div class="appearance-grid">
